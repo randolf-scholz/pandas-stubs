@@ -79,16 +79,6 @@ Dtype: TypeAlias = ExtensionDtype | NpDtype
 DtypeArg: TypeAlias = Dtype | Mapping[Any, Dtype]
 DtypeBackend: TypeAlias = Literal["pyarrow", "numpy_nullable"]
 
-# NOTE: we want to catch all the possible dtypes from np.sctypeDict
-# timedelta64
-# M
-# m8
-# M8
-# object_
-# object0
-# m
-# datetime64
-
 BooleanDtypeArg: TypeAlias = (
     # Builtin bool type and its string alias
     type[bool]  # noqa: Y030

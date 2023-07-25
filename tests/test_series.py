@@ -2555,6 +2555,10 @@ def test_astype_other() -> None:
 
 def test_all_astype_args_tested() -> None:
     """Check that all relevant numpy type aliases are tested."""
+    # NOTE: we want to catch all the possible dtypes from np.sctypeDict except
+    # timedelta64, M, M8, datetime64 m, m8 as these require a unit argument.
+    # object_ object0 do not work for some reason but may be added later.
+
     NUMPY_ALIASES: set[str] = {k for k in np.sctypeDict if isinstance(k, str)}
     EXCLUDED_ALIASES = {
         "datetime64",
